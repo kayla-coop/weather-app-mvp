@@ -1,0 +1,498 @@
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    background-color: #f3f4f6;
+    line-height: 1.5;
+    color: #1f2937;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Styles */
+.header {
+    background-color: #046a38; /* UNC Charlotte green */
+    color: white;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.weather-display {
+    text-align: right;
+}
+
+.temperature {
+    font-size: 1.25rem;
+}
+
+.conditions {
+    font-size: 0.875rem;
+}
+
+/* Alert Styles */
+.weather-alert {
+    background-color: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    padding: 1rem;
+    position: relative;
+}
+
+.alert-text {
+    font-size: 0.875rem;
+    color: #92400e;
+    padding-right: 2rem;
+}
+
+.alert-bold {
+    font-weight: bold;
+}
+
+.close-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #92400e;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.content-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+}
+
+/* Location Selection Styles */
+.location-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .location-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.location-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4b5563;
+    margin-bottom: 0.25rem;
+}
+
+.location-select {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    width: 100%;
+}
+
+/* Preferences Styles */
+.preferences {
+    margin-bottom: 1.5rem;
+}
+
+.preference-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.preference-checkbox {
+    height: 1rem;
+    width: 1rem;
+}
+
+.preference-label {
+    margin-left: 0.5rem;
+    font-size: 0.875rem;
+    color: #4b5563;
+}
+
+/* Button Styles */
+.primary-button {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: #046a38; /* UNC Charlotte green */
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.2s;
+}
+
+.primary-button:hover {
+    background-color: #035c30;
+}
+
+.text-button {
+    background: none;
+    border: none;
+    color: #046a38;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.text-button:hover {
+    color: #035c30;
+    text-decoration: underline;
+}
+
+.secondary-button {
+    padding: 0.5rem 0.75rem;
+    background-color: white;
+    color: #4b5563;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.secondary-button:hover {
+    background-color: #f9fafb;
+}
+
+/* Step Navigation */
+.step-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/* Routes Display */
+.routes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.route-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.route-card:hover {
+    border-color: #046a38;
+}
+
+.route-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.route-name {
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.impact-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.impact-low {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.impact-medium {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.impact-high {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+.route-details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.route-detail {
+    display: flex;
+    align-items: center;
+}
+
+.route-detail-text {
+    font-size: 0.875rem;
+    color: #4b5563;
+}
+
+.route-hazards {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #dc2626;
+}
+
+/* Selected Route Styles */
+.route-details {
+    background-color: #f9fafb;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.selected-route-name {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.route-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.route-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background-color: #f3f4f6;
+    color: #4b5563;
+}
+
+.route-steps {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 0.75rem;
+}
+
+.route-steps-title {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.steps-list {
+    list-style-type: none;
+}
+
+.step-item {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.step-number {
+    font-weight: 500;
+    margin-right: 0.5rem;
+}
+
+.step-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.step-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.step-covered {
+    font-size: 0.75rem;
+    color: #059669;
+}
+
+.step-exposed {
+    font-size: 0.75rem;
+    color: #ea580c;
+}
+
+/* Weather Section */
+.weather-section {
+    margin-top: 1.5rem;
+}
+
+.current-weather {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.375rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.weather-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.weather-condition {
+    font-weight: 500;
+}
+
+.weather-temperature {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.hazard-report {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.report-button {
+    margin: 0 auto;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 50;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    max-width: 28rem;
+    width: 100%;
+    padding: 1.5rem;
+}
+
+.modal-title {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.modal-form {
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4b5563;
+    margin-bottom: 0.25rem;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+}
+
+.form-textarea {
+    resize: vertical;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #046a38; /* UNC Charlotte green */
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.875rem;
+}
+
+.footer-subtext {
+    color: #a7f3d0;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+}

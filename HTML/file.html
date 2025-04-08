@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNC Charlotte AI Weather Response Agent</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="header-title">UNC Charlotte Weather Response Agent</h1>
+                <div class="weather-display">
+                    <div class="temperature">68°F</div>
+                    <div class="conditions">Light Rain</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Weather Alert -->
+        <div id="weather-alert" class="weather-alert">
+            <p class="alert-text">
+                <span class="alert-bold">Alert:</span> 
+                Thunderstorm Warning: Thunderstorms expected between 2:00 PM and 4:00 PM.
+            </p>
+            <button id="close-alert" class="close-button">✕</button>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-card">
+                <h2 class="card-title">Personalized Route Planning</h2>
+                
+                <!-- Step 1: Enter Locations -->
+                <div id="step1" class="step-section">
+                    <h3 class="section-title">Step 1: Enter your starting location and destination</h3>
+                    <div class="location-grid">
+                        <div class="location-input">
+                            <label class="input-label">Starting Location</label>
+                            <select id="start-location" class="location-select">
+                                <option value="Atkins Library">Atkins Library</option>
+                                <option value="Student Union">Student Union</option>
+                                <option value="Fretwell Building">Fretwell Building</option>
+                                <option value="Colvard Building">Colvard Building</option>
+                                <option value="College of Health & Human Services">College of Health & Human Services</option>
+                                <option value="Prospector Building">Prospector Building</option>
+                                <option value="Kennedy Building">Kennedy Building</option>
+                                <option value="Burson Building">Burson Building</option>
+                            </select>
+                        </div>
+                        <div class="location-input">
+                            <label class="input-label">Destination</label>
+                            <select id="end-location" class="location-select">
+                                <option value="Student Union">Student Union</option>
+                                <option value="Atkins Library">Atkins Library</option>
+                                <option value="Fretwell Building">Fretwell Building</option>
+                                <option value="Colvard Building">Colvard Building</option>
+                                <option value="College of Health & Human Services">College of Health & Human Services</option>
+                                <option value="Prospector Building">Prospector Building</option>
+                                <option value="Kennedy Building">Kennedy Building</option>
+                                <option value="Burson Building">Burson Building</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <h3 class="section-title">Set your personal preferences</h3>
+                    <div class="preferences">
+                        <div class="preference-option">
+                            <input id="avoid-rain" type="checkbox" class="preference-checkbox" checked>
+                            <label for="avoid-rain" class="preference-label">
+                                Minimize time in rain/bad weather
+                            </label>
+                        </div>
+                        <div class="preference-option">
+                            <input id="covered-walkways" type="checkbox" class="preference-checkbox" checked>
+                            <label for="covered-walkways" class="preference-label">
+                                Prefer covered walkways and indoor paths
+                            </label>
+                        </div>
+                        <div class="preference-option">
+                            <input id="priority-speed" type="checkbox" class="preference-checkbox">
+                            <label for="priority-speed" class="preference-label">
+                                Prioritize speed over comfort
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button id="find-routes-btn" class="primary-button">Find Routes</button>
+                </div>
+                
+                <!-- Step 2: View Route Options -->
+                <div id="step2" class="step-section hidden">
+                    <div class="step-header">
+                        <h3 class="section-title">Step 2: View and compare route options</h3>
+                        <button id="back-to-preferences-btn" class="text-button">Back to Preferences</button>
+                    </div>
+                    
+                    <div id="routes-container" class="routes-container">
+                        <!-- Routes will be dynamically inserted here by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Step 3: Selected Route Details -->
+                <div id="step3" class="step-section hidden">
+                    <div class="step-header">
+                        <h3 class="section-title">Step 3: Navigate Your Route</h3>
+                        <button id="back-to-routes-btn" class="text-button">Back to Routes</button>
+                    </div>
+                    
+                    <div id="selected-route-details" class="route-details">
+                        <!-- Selected route details will be dynamically inserted here by JavaScript -->
+                    </div>
+                    
+                    <div class="weather-section">
+                        <h3 class="section-title">Current Weather</h3>
+                        <div class="current-weather">
+                            <div class="weather-info">
+                                <p class="weather-condition">Light Rain</p>
+                                <p class="weather-temperature">68°F</p>
+                            </div>
+                        </div>
+                        
+                        <button id="start-navigation-btn" class="primary-button">Start Navigation</button>
+                        
+                        <div class="hazard-report">
+                            <button id="report-hazard-btn" class="text-button report-button">Report a Weather Hazard</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Report Form Modal -->
+        <div id="report-modal" class="modal hidden">
+            <div class="modal-content">
+                <h3 class="modal-title">Report a Weather Hazard</h3>
+                <div class="modal-form">
+                    <div class="form-group">
+                        <label class="form-label">Location</label>
+                        <input id="hazard-location" type="text" class="form-input" placeholder="Specific location on campus">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Hazard Type</label>
+                        <select id="hazard-type" class="form-select">
+                            <option value="Flooding">Flooding</option>
+                            <option value="Slippery Surface">Slippery Surface</option>
+                            <option value="Fallen Tree/Branch">Fallen Tree/Branch</option>
+                            <option value="Poor Visibility">Poor Visibility</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Description</label>
+                        <textarea id="hazard-description" class="form-textarea" rows="3" placeholder="Describe the hazard..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button id="cancel-report-btn" class="secondary-button">Cancel</button>
+                    <button id="submit-report-btn" class="primary-button">Submit Report</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer-text">© 2025 UNC Charlotte AI Weather Response Agent</p>
+            <p class="footer-subtext">MVP Demo Version</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
